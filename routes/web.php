@@ -7,9 +7,9 @@ use App\Http\Controllers\AuthController;
 
 // Halaman utama
 Route::get('/', function () {
-    return view('welcome');
-});
-
+    return view('welcome'); 
+}); 
+ 
 // Route dashboard utama dengan logic redirect
 Route::get('/dashboard', function () {
     if (auth()->user()->role === 'admin') {
@@ -39,7 +39,12 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
-    })->name('admin.dashboard');
-});
+    })->name('admin.dashboard'); 
+}); 
+
+// Tambahkan ini untuk menampilkan login custom seperti gambar UI kamu
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
 
 require __DIR__.'/auth.php';
