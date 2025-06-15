@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Perintah ini berarti: "Tolong jalankan isi dari file AdminSeeder.php"
+        $this->call([
+            AdminSeeder::class,
         ]);
+
+        // Jika nanti ada seeder lain, Anda bisa menambahkannya di sini.
+        // Contoh: $this->call([FaqSeeder::class]);
     }
 }
