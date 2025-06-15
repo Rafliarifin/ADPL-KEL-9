@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'nama_lengkap',
         'email',
         'password',
     ];
@@ -44,5 +44,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    // Tambahkan relasi ini di dalam class User
+// User bisa membuat banyak post
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+// User bisa membuat banyak balasan
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }

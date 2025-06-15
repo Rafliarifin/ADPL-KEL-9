@@ -11,7 +11,7 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Admin SmartEnergy',
+            'nama_lengkap' => 'Admin SmartEnergy',
             'email' => 'admin@smartenergy.com',
             'password' => Hash::make('password123'),
             'role' => 'admin', // Tambahkan role admin
